@@ -19,7 +19,7 @@ class NotificationSendController extends Controller
     {
         $FcmToken = User::whereNotNull('device_token')->pluck('device_token')->all();
 
-        $serverKey = 'AAAAB1KE0ag:APA91bFay-ZwYNywu9M5aUWYHplEnpIiMCa7JWCvXoJhPyPe2NVcodhB1VzToW_pFHw4QFQjqOT6Pbow1kb9E7tFulz9xDspbOVziBsRZun9SDdiJ-X8_EDtJeXPra32ziC_hxfbNhWr'; // ADD SERVER KEY HERE PROVIDED BY FCM
+        $serverKey = config('firebase.firebase_server_key');
 
         $data = [
             "registration_ids" => $FcmToken,
